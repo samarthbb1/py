@@ -13,19 +13,16 @@ except ValueError as e:
     print(f"Error: {e}")
 
 
-# 4b. File Operations for Employee Details
-def file_ops():
-    # Write
-    with open("emp.txt", "w") as f:
-        f.write("ID: 101, Name: Alice\n")
-    
-    # Append
-    with open("emp.txt", "a") as f:
-        f.write("ID: 102, Name: Bob\n")
-    
-    # Read
-    with open("emp.txt", "r") as f:
-        print("\nEmployee Details from File:\n" + f.read())
+#4b Open the input file and read all lines
+with open("input.txt", "r") as file:
+    lines = file.readlines()
 
-file_ops()
+# Sort the lines alphabetically
+lines.sort()
+
+# Write the sorted lines to the output file
+with open("output.txt", "w") as file:
+    file.writelines(lines)
+
+print("Lines have been sorted alphabetically and written to output.txt")
 
