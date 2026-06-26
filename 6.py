@@ -87,4 +87,34 @@ def run_program():
 
 if __name__ == "__main__":
     run_program()
+#or smaller program
 
+class Product:
+    def __init__(self, name):
+        self.name = name
+
+class Discount:
+    def __init__(self, rate):
+        self.rate = rate
+
+class Order(Product, Discount):
+    def __init__(self, name, rate):
+        Product.__init__(self, name)
+        Discount.__init__(self, rate)
+
+    def show(self):
+        print("Product:", self.name)
+        print("Discount:", self.rate, "%")
+
+try:
+    name = input("Enter product name: ")
+    rate = float(input("Enter discount: "))
+
+    if rate < 0 or rate > 100:
+        raise ValueError("Invalid discount")
+    print("order summary:")
+    order = Order(name, rate)
+    order.show()
+
+except ValueError as e:
+    print("Error:", e)
