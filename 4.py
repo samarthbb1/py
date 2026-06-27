@@ -24,5 +24,19 @@ lines.sort()
 with open("output.txt", "w") as file:
     file.writelines(lines)
 
-print("Lines have been sorted alphabetically and written to output.txt")
+print("Lines have been sorted alphabetically and written to output.txt"
+#or
+def file_ops():
+    # Write
+    with open("emp.txt", "w") as f:
+        f.write("ID: 101, Name: Alice\n")
+    
+    # Append
+    with open("emp.txt", "a") as f:
+        f.write("ID: 102, Name: Bob\n")
+    
+    # Read
+    with open("emp.txt", "r") as f:
+        print("\nEmployee Details from File:\n" + f.read())
 
+file_ops()
